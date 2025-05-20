@@ -1,0 +1,39 @@
+# BMI Calculator
+
+A Python program that calculates Body Mass Index (BMI) and classifies health risk.
+
+## Features
+- WHO-standard BMI categories
+- Input validation
+- Clean console interface
+
+## How to Run
+```bash
+python bmi.py
+
+
+def calculate_bmi(weight, height):
+    """Calculate BMI and return health category"""
+    bmi = weight / (height ** 2)
+    
+    if bmi > 25:
+        return "overweight"
+    elif bmi < 18.5:
+        return "underweight"
+    else:
+        return "normal"
+
+if __name__ == "__main__":
+    try:
+        weight = float(input("What's your weight in kg? "))
+        height = float(input("What's your height in meters? "))
+        
+        if weight <= 0 or height <= 0:
+            print("Error: Values must be positive")
+        else:
+            bmi_value = weight / (height ** 2)
+            category = calculate_bmi(weight, height)
+            print(f"Your BMI is {bmi_value:.1f} - you are {category}")
+            
+    except ValueError:
+        print("Error: Please enter valid numbers")
